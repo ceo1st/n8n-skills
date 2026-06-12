@@ -429,8 +429,8 @@ get_node({
 - operation="insert" → table + values required
 - operation="update" → table + values + where required
 
-**Critical: Write operations return 0 items**
-- INSERT, UPDATE, DELETE produce 0 n8n output items (database returns 0 result rows)
+**Critical: Write operations may return 0 items**
+- INSERT, UPDATE, DELETE can produce 0 n8n output items, depending on the node and operation (raw query execution reliably returns 0 result rows; some database nodes return the affected rows)
 - Set `alwaysOutputData: true` on write-operation nodes to keep downstream chains alive
 - Downstream nodes should use `$('UpstreamNode').all()` instead of `$input` if they need data
 

@@ -710,8 +710,8 @@ SELECT records → Split In Batches (1000) → Process → Loop
 INSERT INTO table ... → Next node never executes (0 output items)
 ```
 
-Database write operations (INSERT, UPDATE, DELETE) return **0 result rows** from the database engine.
-n8n translates this to **0 output items**, silently breaking any downstream chain.
+Database write operations (INSERT, UPDATE, DELETE) may return **0 result rows** from the database engine — reliably so for raw query execution (e.g. `executeQuery` with an INSERT), while some database nodes return the affected rows instead.
+When 0 rows come back, n8n translates this to **0 output items**, silently breaking any downstream chain.
 
 ### ✅ Correct: Set `alwaysOutputData` on write nodes
 ```
