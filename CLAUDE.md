@@ -117,8 +117,7 @@ The n8n-mcp server provides these unified tools:
 - `n8n_update_full_workflow` - Full workflow replacement
 
 ### Guides
-- `tools_documentation` - Meta-documentation for all tools
-- `ai_agents_guide` - AI agent workflow guidance
+- `tools_documentation` - Meta-documentation for all tools; the AI agent workflow guide is accessed via `tools_documentation({topic: "ai_agents_guide", depth: "full"})` (not a standalone tool)
 
 ## Important Patterns
 

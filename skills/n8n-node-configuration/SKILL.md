@@ -412,6 +412,11 @@ get_node({
 - sendBody=true → body required
 - authentication != "none" → credentials required
 
+**Critical: credentials block, node id, typeVersion**
+- **Never set a placeholder credential ID** (e.g. `"id": "REPLACE_ME"`) — n8n's UI renders a permanently disabled credential selector for unknown IDs. Omit the `credentials` block when the real ID is unknown; the user then gets a normal clickable dropdown.
+- **Node `id` must be a UUID v4**, not a readable slug — the frontend binds forms and the credential component to it.
+- **Don't hardcode old `typeVersion` values** — verify the current version with `get_node` (httpRequest is 4.4+).
+
 ### Pattern 3: Database Nodes
 
 **Examples**: Postgres, MySQL, MongoDB

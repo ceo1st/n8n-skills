@@ -8,13 +8,14 @@ This folder contains distribution packages for different Claude platforms.
 
 Upload each skill separately via Settings > Capabilities > Skills (bottom of page):
 
-- `n8n-expression-syntax-v1.9.0.zip` - n8n expression syntax and common patterns
-- `n8n-mcp-tools-expert-v1.9.0.zip` - Expert guide for using n8n-mcp tools (recommended to install first)
-- `n8n-workflow-patterns-v1.9.0.zip` - 6 proven workflow architectural patterns
-- `n8n-validation-expert-v1.9.0.zip` - Validation error interpretation and fixing
-- `n8n-node-configuration-v1.9.0.zip` - Operation-aware node configuration
-- `n8n-code-javascript-v1.9.0.zip` - JavaScript in n8n Code nodes
-- `n8n-code-python-v1.9.0.zip` - Python in n8n Code nodes
+- `n8n-expression-syntax-v1.10.0.zip` - n8n expression syntax and common patterns
+- `n8n-mcp-tools-expert-v1.10.0.zip` - Expert guide for using n8n-mcp tools (recommended to install first)
+- `n8n-workflow-patterns-v1.10.0.zip` - 6 proven workflow architectural patterns
+- `n8n-validation-expert-v1.10.0.zip` - Validation error interpretation and fixing
+- `n8n-node-configuration-v1.10.0.zip` - Operation-aware node configuration
+- `n8n-code-javascript-v1.10.0.zip` - JavaScript in n8n Code nodes
+- `n8n-code-python-v1.10.0.zip` - Python in n8n Code nodes
+- `n8n-code-tool-v1.10.0.zip` - Code for the AI-agent Custom Code Tool
 
 **Installation:**
 1. Go to Settings > Capabilities > Skills (bottom of page)
@@ -24,7 +25,7 @@ Upload each skill separately via Settings > Capabilities > Skills (bottom of pag
 
 ### Complete Bundle (Claude Code only)
 
-- **`n8n-mcp-skills-v1.9.0.zip`** (174 KB) - All 7 skills in one package
+- **`n8n-mcp-skills-v1.10.0.zip`** - All 8 skills in one package
 
 > **This bundle is NOT compatible with Claude.ai or Claude Desktop.** It uses a nested `skills/` directory structure required by Claude Code plugins. For Claude.ai/Desktop, use the individual skill zips above.
 
@@ -34,16 +35,16 @@ Upload each skill separately via Settings > Capabilities > Skills (bottom of pag
 /plugin install czlonkowski/n8n-skills
 
 # Or install from local file
-/plugin install /path/to/n8n-mcp-skills-v1.9.0.zip
+/plugin install /path/to/n8n-mcp-skills-v1.10.0.zip
 ```
 
 ## Which Package Should I Use?
 
 | Platform | Package | What You Get |
 |----------|---------|--------------|
-| **Claude.ai / Desktop** | Individual zips | 7 skills (upload separately) |
-| **Claude Code** | Complete bundle OR individual zips | All 7 skills |
-| **Claude API** | Complete bundle | All 7 skills (extract skills/ folder) |
+| **Claude.ai / Desktop** | Individual zips | 8 skills (upload separately) |
+| **Claude Code** | Complete bundle OR individual zips | All 8 skills |
+| **Claude API** | Complete bundle | All 8 skills (extract skills/ folder) |
 
 ---
 
@@ -51,14 +52,15 @@ Upload each skill separately via Settings > Capabilities > Skills (bottom of pag
 
 ```
 dist/
-├── n8n-code-javascript-v1.9.0.zip        (34 KB)
-├── n8n-code-python-v1.9.0.zip            (31 KB)
-├── n8n-expression-syntax-v1.9.0.zip      (11 KB)
-├── n8n-mcp-skills-v1.9.0.zip             (174 KB)  Claude Code only
-├── n8n-mcp-tools-expert-v1.9.0.zip       (19 KB)
-├── n8n-node-configuration-v1.9.0.zip     (18 KB)
-├── n8n-validation-expert-v1.9.0.zip      (19 KB)
-├── n8n-workflow-patterns-v1.9.0.zip      (37 KB)
+├── n8n-code-javascript-v1.10.0.zip
+├── n8n-code-python-v1.10.0.zip
+├── n8n-code-tool-v1.10.0.zip
+├── n8n-expression-syntax-v1.10.0.zip
+├── n8n-mcp-skills-v1.10.0.zip             Claude Code only
+├── n8n-mcp-tools-expert-v1.10.0.zip
+├── n8n-node-configuration-v1.10.0.zip
+├── n8n-validation-expert-v1.10.0.zip
+├── n8n-workflow-patterns-v1.10.0.zip
 └── README.md                              (this file)
 ```
 
@@ -84,14 +86,15 @@ Each zip contains a skill folder at the root with:
   └── marketplace.json # Marketplace listing metadata
 README.md              # Project overview and documentation
 LICENSE                # MIT License
-skills/                # All 7 skills in subfolders
+skills/                # All 8 skills in subfolders
   ├── n8n-expression-syntax/
   ├── n8n-mcp-tools-expert/
   ├── n8n-workflow-patterns/
   ├── n8n-validation-expert/
   ├── n8n-node-configuration/
   ├── n8n-code-javascript/
-  └── n8n-code-python/
+  ├── n8n-code-python/
+  └── n8n-code-tool/
 ```
 
 ## Verification
