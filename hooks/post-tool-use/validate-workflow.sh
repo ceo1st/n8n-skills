@@ -10,7 +10,7 @@
 # "n8n-nodes-base.set") and route to the relevant skills. This is more robust
 # than grepping source code. Fires every call (no dedup).
 #
-# TODO(M4): repoint sub-workflow / agent routes to n8n-subworkflows / n8n-agents.
+# Routes: sub-workflow trigger -> n8n-subworkflows; LangChain agent -> n8n-agents.
 
 set -uo pipefail
 
@@ -85,7 +85,7 @@ SUGGESTIONS=""
 { [ $HAS_LOOP -eq 1 ] || [ $HAS_HTTP -eq 1 ]; } && SUGGESTIONS+="
 - n8n-code-javascript + n8n-workflow-patterns (Loop Over Items / HTTP pagination & batching)"
 [ $HAS_SUBWF_TRIGGER -eq 1 ] && SUGGESTIONS+="
-- n8n-workflow-patterns (sub-workflow trigger: input mode + return-shape rules)"
+- n8n-subworkflows (sub-workflow trigger: Define-Below input mode + return-shape rules)"
 [ $HAS_DATATABLE -eq 1 ] && SUGGESTIONS+="
 - n8n-node-configuration + n8n-workflow-patterns (Data Table: system columns, primitive-only types, map-in-Insert rule)"
 { [ $HAS_HTTP -eq 1 ] || [ $HAS_WEBHOOK -eq 1 ] || [ $HAS_RESPOND -eq 1 ]; } && SUGGESTIONS+="
@@ -95,7 +95,7 @@ SUGGESTIONS=""
 [ "${NODE_COUNT}" -gt 6 ] && SUGGESTIONS+="
 - n8n-workflow-patterns (>6 nodes: architecture review, sticky notes, naming)"
 [ $HAS_AGENT -eq 1 ]     && SUGGESTIONS+="
-- n8n-workflow-patterns (LangChain Agent: tool names/descriptions are part of the prompt)"
+- n8n-agents (LangChain Agent: tool names/descriptions are part of the prompt; structured output + autoFix; memory/sessionId)"
 
 if [ -z "${SUGGESTIONS}" ]; then
   WARNINGS="[validate_workflow returned. Validation is necessary, not sufficient.]

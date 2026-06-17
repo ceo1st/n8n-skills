@@ -75,6 +75,8 @@ If you catch yourself thinking any of these, stop and invoke the named skill fir
 | "I'll reference `$json.x` here" | `n8n-expression-syntax` — prefer `$('Node').item.json.x` in branchy workflows |
 | "This webhook/scheduled flow is happy-path only" | `n8n-error-handling` — wire an error branch on every fallible node; 4xx caller faults, 5xx yours |
 | "I'll pass this file/image through as JSON" | `n8n-binary-and-data` — file contents live in `$binary`, and can't cross the agent-tool boundary |
+| "I'll wire up an AI agent and give the model some tools" | `n8n-agents` — tool names & descriptions ARE the prompt; memory, structured output, and topology have traps |
+| "I'll copy this logic into another workflow" / "this is getting big" | `n8n-subworkflows` — extract a reusable sub-workflow; search before building |
 
 ## Skill index
 
@@ -91,6 +93,8 @@ If you catch yourself thinking any of these, stop and invoke the named skill fir
 | `n8n-code-tool` | The AI-agent-callable Custom Code Tool (`toolCode`) — returns a string, no `$fromAI`/`$input` |
 | `n8n-error-handling` | Webhook/API or unattended workflows; wiring error outputs; retries; 4xx/5xx response shapes; silent failures |
 | `n8n-binary-and-data` | Files, images, PDFs, attachments, uploads/downloads, vision; passing a file to/from an agent tool |
+| `n8n-subworkflows` | Reusable / multi-step builds; Execute Workflow; extracting shared logic; Define-Below inputs; all-vs-each; exposing a workflow as an agent tool |
+| `n8n-agents` | AI Agent / LLM-with-tools / Text Classifier; tool design & `$fromAI`; system prompts; structured output; memory; RAG; human review; chat bots |
 
 ## n8n-mcp tools — working knowledge from turn one
 

@@ -117,7 +117,7 @@ if matches 'nodes-langchain\.agent$'; then
   WARNINGS+="
 
 [AI Agent node detected]
-STOP and invoke the n8n-workflow-patterns skill via the Skill tool (its AI agent pattern). Tool names and descriptions ARE part of the prompt the model routes against, generic ones degrade tool selection. The model/memory/tools/output-parser sub-node slots, structured output, and sessionId continuity all have traps. If you are attaching a custom Code tool to the agent, that code has its own runtime contract: n8n-code-tool."
+Invoke the n8n-agents skill via the Skill tool. Tool names and descriptions ARE part of the prompt the model routes against — generic ones degrade tool selection. The model/memory/tools/output-parser sub-node slots, structured output (use autoFix), memory + sessionId continuity, and chat anti-loop filtering all have traps. Custom Code tools attached to the agent have their own runtime contract: n8n-code-tool."
 fi
 
 [ -z "${WARNINGS}" ] && exit 0

@@ -5,6 +5,5 @@
 #
 # Fires before n8n_create_workflow. A new workflow means architecture, naming,
 # and reuse decisions need to happen before the JSON lands.
-# TODO(M4): add n8n-subworkflows to the reminder once that skill ships.
 exec "$(dirname "$0")/_emit.sh" "create-workflow" \
-"Before creating: invoke the n8n-workflow-patterns skill via the Skill tool to pick the right architecture (webhook / HTTP API / database / AI agent / scheduled / batch), name nodes for what they do, and add sticky notes capturing the why. Before duplicating logic, list existing workflows (n8n_list_workflows) and reuse what's there. Pass skillsUsed if your server's create tool accepts it."
+"Before creating: invoke n8n-workflow-patterns (pick the right architecture — webhook / HTTP API / database / AI agent / scheduled / batch — name nodes for what they do, add sticky notes capturing the why) and n8n-subworkflows (search existing workflows with n8n_list_workflows and reuse a sub-workflow before duplicating logic) via the Skill tool. Pass skillsUsed if your server's create tool accepts it."

@@ -5,7 +5,7 @@
 set -e
 
 DIST_DIR="dist"
-VERSION="1.15.0"
+VERSION="1.16.0"
 
 echo "🔨 Building n8n-skills distribution packages..."
 
@@ -31,6 +31,8 @@ SKILLS=(
     "n8n-code-tool"
     "n8n-error-handling"
     "n8n-binary-and-data"
+    "n8n-subworkflows"
+    "n8n-agents"
     "using-n8n-mcp-skills"
 )
 
