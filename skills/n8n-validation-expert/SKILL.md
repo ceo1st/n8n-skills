@@ -729,12 +729,19 @@ n8n_autofix_workflow({
 
 ---
 
+## Reviewing an existing workflow
+
+Validating as you build (the loop above) is for catching schema and shape errors in your own in-progress work. **Reviewing an existing workflow** — yours or one you've been handed — is a different job: the workflow already passes `validate_workflow` clean, and you're hunting for the issues validation doesn't see (silent connection bugs, injection-prone queries, dropped-item Switches, Set/Code antipatterns, missing error paths). For that, pull the workflow with `n8n_get_workflow` and walk **[REVIEW_CHECKLIST.md](REVIEW_CHECKLIST.md)** — a severity-tiered audit (MUST FIX / SHOULD FIX / NICE TO HAVE) where every item points to the canonical skill for the fix. Run `n8n_audit_instance` alongside it to surface hardcoded secrets and unauthenticated webhooks across the whole instance.
+
+---
+
 ## Detailed Guides
 
-For comprehensive error catalogs and false positive examples:
+For comprehensive error catalogs, false positives, and workflow review:
 
 - **[ERROR_CATALOG.md](ERROR_CATALOG.md)** - Complete list of error types with examples
 - **[FALSE_POSITIVES.md](FALSE_POSITIVES.md)** - When warnings are acceptable
+- **[REVIEW_CHECKLIST.md](REVIEW_CHECKLIST.md)** - Severity-tiered audit for reviewing an existing workflow
 
 ---
 

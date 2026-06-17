@@ -728,6 +728,8 @@ if (Math.round(newPrice * 100) !== Math.round(oldPrice * 100)) {
 
 ## When to Use Code Node
 
+> **Before reaching for a Code node, walk the transform gatekeeper** in the n8n Expression Syntax skill: expression → arrow-function IIFE inside an Edit Fields field → Code node, in that order. The first two paths cover most "transform this data" tasks at ~1–10ms each, versus the Code node's sandboxed ~500–1000ms — a ~100x gap on pure single-item shaping, with no functional difference. The Code node earns its place only for whole-dataset aggregation (`$input.all()`), allowlisted libraries, or async work. And before writing code for crypto (HMAC, hashing, signing) or XML/SOAP/RSS parsing, check for a **native node** — n8n has a Crypto node (`nodes-base.crypto`) and an XML node (`nodes-base.xml`) that cover those without any JavaScript. Dropping into Code for something a native node already does is one of the most common false positives.
+
 Use Code node when:
 - ✅ Complex transformations requiring multiple steps
 - ✅ Custom calculations or business logic

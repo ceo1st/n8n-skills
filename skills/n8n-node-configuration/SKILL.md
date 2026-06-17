@@ -813,12 +813,28 @@ n8n_update_partial_workflow({
 
 ---
 
+## Silent-Failure Gotchas by Node Family
+
+Some misconfigurations pass `validate_node` and `validate_workflow` clean, run without error, and quietly do the wrong thing — `get_node` shows the fields exist but not what happens when you omit them. The high-frequency ones:
+
+- **Switch** — no `options.fallbackOutput` ⇒ unmatched items silently dropped.
+- **Merge** — `numberOfInputs` defaults to 2 (extra sources drop); `useDataOfInput` is 1-indexed vs the 0-indexed `connections.<src>.main[idx]` slot (`useDataOfInput: "N"` → `main[N-1]`).
+- **Database** — `{{ }}` interpolation into `parameters.query` is SQL injection; use `$1/$2` placeholders + `options.queryReplacement`.
+- **Slack** — Block Kit must be wrapped `={{ { "blocks": ... } }}` or it posts as plain text.
+- **Webhook / Respond** — `responseCode` defaults to 200 even on error branches.
+- **Schedule Trigger** — timezone is workflow-level (Workflow Settings), not per-rule.
+
+Full symptom/cause/fix detail (in JSON + `n8n_update_partial_workflow` terms) in **[NODE_FAMILY_GOTCHAS.md](NODE_FAMILY_GOTCHAS.md)**.
+
+---
+
 ## Detailed References
 
 For comprehensive guides on specific topics:
 
 - **[DEPENDENCIES.md](DEPENDENCIES.md)** - Deep dive into property dependencies and displayOptions
 - **[OPERATION_PATTERNS.md](OPERATION_PATTERNS.md)** - Common configuration patterns by node type
+- **[NODE_FAMILY_GOTCHAS.md](NODE_FAMILY_GOTCHAS.md)** - Silent runtime traps by family (Switch, Merge, Database, Slack, Webhook, Schedule)
 
 ---
 
