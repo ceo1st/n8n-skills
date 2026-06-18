@@ -97,6 +97,7 @@ If you catch yourself thinking any of these, stop and invoke the named skill fir
 | `n8n-subworkflows` | Reusable / multi-step builds; Execute Workflow; extracting shared logic; Define-Below inputs; all-vs-each; exposing a workflow as an agent tool |
 | `n8n-agents` | AI Agent / LLM-with-tools / Text Classifier; tool design & `$fromAI`; system prompts; structured output; memory; RAG; human review; chat bots |
 | `n8n-multi-instance` | Accounts with multiple instances (the `n8n_instances` tool is present); switching the target instance; verifying before credential writes; recovering from an unexpected `NOT_FOUND`, wrong/empty reads, or an `INSTANCE_AMBIGUOUS` credential-write fail-close |
+| `n8n-self-hosting` | *Deployment, not workflow-building* — self-hosting / installing / deploying n8n on a VM (Docker Compose + Caddy, single vs queue mode), or updating / backing up / hardening it. Triggers on its own; not part of the build flow above. |
 
 ## n8n-mcp tools — working knowledge from turn one
 

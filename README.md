@@ -14,7 +14,7 @@
 
 ## 🎯 What is this?
 
-This repository contains **13 complementary Claude Code skills** — plus an always-on router skill and a hooks enforcement layer — that teach AI assistants how to build production-ready n8n workflows using the [n8n-mcp](https://github.com/czlonkowski/n8n-mcp) MCP server.
+This repository contains **14 complementary Claude Code skills** — plus an always-on router skill and a hooks enforcement layer — that teach AI assistants how to build production-ready n8n workflows using the [n8n-mcp](https://github.com/czlonkowski/n8n-mcp) MCP server, and how to deploy the self-hosted n8n that runs them.
 
 ### Why These Skills Exist
 
@@ -33,7 +33,7 @@ These skills solve these problems by teaching Claude:
 
 ---
 
-## 📚 The 13 Skills
+## 📚 The 14 Skills
 
 ### 1. **n8n Expression Syntax**
 Teaches correct n8n expression syntax and common patterns.
@@ -189,6 +189,19 @@ Target the right n8n instance when an account has more than one.
 - Switching in its own turn; the per-session binding that persists across reconnects/deploys
 - Verifying `current` before credential writes — the server fail-closes only the *ambiguous* case (`INSTANCE_AMBIGUOUS`); an explicit wrong switch still writes the secret silently
 - Recovering from a misroute (NOT_FOUND ≈ wrong instance, not a deletion) and copying objects between instances
+
+### 14. **n8n Self-Hosting** (deployment/ops)
+Deploy a production self-hosted n8n end-to-end to a fresh Linux VM.
+
+**Activates when**: Self-hosting, installing, or deploying n8n on your own server/VPS (Hetzner, DigitalOcean, EC2, bare metal) — single or queue mode — or updating/backing-up/hardening it. Not for n8n Cloud, and not for building workflows.
+
+**Key Features**:
+- Docker Compose behind **Caddy** with automatic HTTPS; asks **single vs queue mode** first
+- Single (SQLite) and queue (main + Redis + Postgres + workers) templates, secret-free and domain-free
+- Generates fresh secrets on the box; secure defaults (explicit encryption key, no published internal ports, telemetry off, env-access blocked, execution pruning)
+- DNS/ports preflight, end-to-end verify (cert + reachability), and Day-2 (update / backup / restore)
+
+> This is the pack's one **deployment** skill; it triggers on its own description and is not part of the workflow-building router/hooks flow.
 
 ---
 
@@ -362,7 +375,7 @@ The hooks enforcement layer adapts patterns from the official [n8n Skills](https
 
 ## 📊 What's Included
 
-- **13** complementary skills that work together
+- **14** complementary skills that work together
 - **525+** n8n nodes supported
 - **2,653+** workflow templates for examples
 - **10** production-tested Code node patterns
