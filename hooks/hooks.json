@@ -56,6 +56,24 @@
             "command": "${CLAUDE_PLUGIN_ROOT}/hooks/pre-tool-use/test-workflow.sh"
           }
         ]
+      },
+      {
+        "matcher": "^mcp__.*__n8n_instances$",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PLUGIN_ROOT}/hooks/pre-tool-use/instances.sh"
+          }
+        ]
+      },
+      {
+        "matcher": "^mcp__.*__n8n_manage_credentials$",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PLUGIN_ROOT}/hooks/pre-tool-use/manage-credentials.sh"
+          }
+        ]
       }
     ],
     "PostToolUse": [

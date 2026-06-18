@@ -29,6 +29,8 @@ skills and the marker/cache directories changed to a distinct namespace:
   hooks/pre-tool-use/update-workflow.sh
   hooks/pre-tool-use/validate-workflow.sh
   hooks/pre-tool-use/test-workflow.sh
+  hooks/pre-tool-use/instances.sh
+  hooks/pre-tool-use/manage-credentials.sh
   hooks/post-tool-use/validate-workflow.sh
 
 Notable changes from upstream:
@@ -40,6 +42,9 @@ Notable changes from upstream:
     rather than grepping SDK source code.
   - The upstream execute_workflow hook was dropped (no such tool on this
     server) and its error-handling reminder folded into the test_workflow hook.
+  - PreToolUse hooks for n8n_instances and n8n_manage_credentials were added
+    (original to this pack, reusing the adapted _emit.sh one-shot pattern) to
+    surface the multi-instance and credential-discipline guidance.
 
 The skills/using-n8n-mcp-skills router borrows the document *structure* of
 the upstream using-n8n-skills meta-skill; its prose is original to this

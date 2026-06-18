@@ -14,7 +14,7 @@
 
 ## 🎯 What is this?
 
-This repository contains **12 complementary Claude Code skills** — plus an always-on router skill and a hooks enforcement layer — that teach AI assistants how to build production-ready n8n workflows using the [n8n-mcp](https://github.com/czlonkowski/n8n-mcp) MCP server.
+This repository contains **13 complementary Claude Code skills** — plus an always-on router skill and a hooks enforcement layer — that teach AI assistants how to build production-ready n8n workflows using the [n8n-mcp](https://github.com/czlonkowski/n8n-mcp) MCP server.
 
 ### Why These Skills Exist
 
@@ -33,7 +33,7 @@ These skills solve these problems by teaching Claude:
 
 ---
 
-## 📚 The 12 Skills
+## 📚 The 13 Skills
 
 ### 1. **n8n Expression Syntax**
 Teaches correct n8n expression syntax and common patterns.
@@ -179,6 +179,17 @@ Design n8n AI agents the right way.
 - Structured output with autoFix; memory + sessionId; human-in-the-loop review
 - Chat shell+core+sub-agent topology with anti-loop filtering
 
+### 13. **n8n Multi-Instance**
+Target the right n8n instance when an account has more than one.
+
+**Activates when**: The `n8n_instances` tool is available, the user mentions multiple instances/environments (prod vs staging, several clients), or a call returns an unexpected `NOT_FOUND` or wrong/empty data.
+
+**Key Features**:
+- `n8n_instances` `list`/`switch` shapes and the real error envelope (`UNKNOWN_INSTANCE`, `MULTI_INSTANCE_DISABLED`, …)
+- Switching in its own turn; the per-session binding that persists across reconnects/deploys
+- Verifying `current` before credential writes — the server fail-closes only the *ambiguous* case (`INSTANCE_AMBIGUOUS`); an explicit wrong switch still writes the secret silently
+- Recovering from a misroute (NOT_FOUND ≈ wrong instance, not a deletion) and copying objects between instances
+
 ---
 
 ## 🪝 Enforcement Layer (hooks + router)
@@ -186,7 +197,7 @@ Design n8n AI agents the right way.
 Beyond the capability skills, the plugin ships an **always-on enforcement layer** so the right guidance surfaces at the moment of decision — not only when a query happens to match a skill description.
 
 - **Router skill (`using-n8n-mcp-skills`)** — loaded into every session by a `SessionStart` hook. It routes you to the right skill, summarizes every n8n-mcp tool, and states the cross-cutting rules. It re-fires on resume/clear/compact so it survives context compaction.
-- **PreToolUse hooks** — before high-impact n8n-mcp calls, a short reminder points at the relevant skill. Looking up a Set, Code, Merge, Loop Over Items, DateTime, Data Table, or AI Agent node via `get_node` fires a node-specific reminder (and re-fires each time, because a re-lookup usually means you're reconsidering the same decision).
+- **PreToolUse hooks** — before high-impact n8n-mcp calls, a short reminder points at the relevant skill. Looking up a Set, Code, Merge, Loop Over Items, DateTime, Data Table, or AI Agent node via `get_node` fires a node-specific reminder (and re-fires each time, because a re-lookup usually means you're reconsidering the same decision). Calls to `n8n_instances` and `n8n_manage_credentials` fire one-shot reminders pointing at the multi-instance and credential-discipline skills.
 - **PostToolUse hook** — after `validate_workflow`, it inspects the workflow's node types and routes you to the skills that own the remaining risks, with the reminder that *validation passing is necessary, not sufficient*.
 
 Hooks run only in the **Claude Code / Codex plugin** install. On Claude.ai (individual skill uploads) the skills still activate by description — the pack degrades gracefully, just without the proactive nudges. Every hook fails open and never blocks a tool call.
@@ -351,7 +362,7 @@ The hooks enforcement layer adapts patterns from the official [n8n Skills](https
 
 ## 📊 What's Included
 
-- **12** complementary skills that work together
+- **13** complementary skills that work together
 - **525+** n8n nodes supported
 - **2,653+** workflow templates for examples
 - **10** production-tested Code node patterns

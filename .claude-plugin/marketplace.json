@@ -22,10 +22,11 @@
         "./skills/n8n-binary-and-data",
         "./skills/n8n-subworkflows",
         "./skills/n8n-agents",
+        "./skills/n8n-multi-instance",
         "./skills/using-n8n-mcp-skills"
       ],
-      "description": "Complete bundle: 12 expert skills for building flawless n8n workflows using the n8n-mcp MCP server (expression syntax, MCP tools usage, workflow patterns, validation, node configuration, JavaScript code, Python code, the AI-agent Custom Code Tool, production error handling, binary/file handling, reusable sub-workflows, and AI agents), plus an always-on router skill and a hooks enforcement layer that surfaces the right skill at the moment of decision.",
-      "version": "1.18.0",
+      "description": "Complete bundle: 13 expert skills for building flawless n8n workflows using the n8n-mcp MCP server (expression syntax, MCP tools usage, workflow patterns, validation, node configuration, JavaScript code, Python code, the AI-agent Custom Code Tool, production error handling, binary/file handling, reusable sub-workflows, AI agents, and multi-instance targeting), plus an always-on router skill and a hooks enforcement layer that surfaces the right skill at the moment of decision.",
+      "version": "1.19.0",
       "author": {
         "name": "Romuald Członkowski",
         "url": "https://www.aiadvisors.pl/en"
