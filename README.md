@@ -2,6 +2,7 @@
 
 **Expert Claude Code skills for building flawless n8n workflows using the n8n-mcp MCP server**
 
+[![skills.sh](https://skills.sh/b/czlonkowski/n8n-skills)](https://skills.sh/czlonkowski/n8n-skills)
 [![GitHub stars](https://img.shields.io/github/stars/czlonkowski/n8n-skills?style=social)](https://github.com/czlonkowski/n8n-skills)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![n8n-mcp](https://img.shields.io/badge/n8n--mcp-compatible-green.svg)](https://github.com/czlonkowski/n8n-mcp)
