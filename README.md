@@ -385,3 +385,9 @@ The hooks enforcement layer adapts patterns from the official [n8n Skills](https
 ---
 
 **Ready to build flawless n8n workflows? Get started now!** 🚀
+
+---
+
+## 💼 Need it built for you?
+
+Work with **[AiAdvisors](https://www.aiadvisors.pl/en)** — automation audits, builds, and operations by the team behind n8n-mcp and n8n-skills.
